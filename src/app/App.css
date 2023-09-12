@@ -1,0 +1,24 @@
+#root {
+	max-width: var(--desktop-app);
+	width: 100%;
+	min-height: 100vh;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.App {
+	max-width: var(--desktop-app);
+	width: 100%;
+	min-height: 100vh;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--light-grayish-blue);
+}
+
+.menu-button {
+	display: none;
+}
+
+@media screen and (max-width: 375px) {
+}
