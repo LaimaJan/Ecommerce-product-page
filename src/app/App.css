@@ -1,5 +1,4 @@
 #root {
-	max-width: var(--desktop-app);
 	width: 100%;
 	min-height: 100vh;
 	margin: 0 auto;
@@ -7,7 +6,7 @@
 }
 
 .App {
-	max-width: var(--desktop-app);
+	max-width: 1400px;
 	width: 100%;
 	min-height: 100vh;
 	margin: 0 auto;
