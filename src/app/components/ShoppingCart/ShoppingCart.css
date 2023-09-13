@@ -1,7 +1,8 @@
 .shopping-cart-container {
+	display: none;
 	background-color: var(--light-grayish-blue);
 	border-radius: 8px;
-	max-width: 360px;
+	max-width: 340px;
 	width: 100%;
 	position: absolute;
 	top: 90px;
@@ -21,22 +22,23 @@
 
 .cart-items {
 	display: flex;
-	justify-content: left;
-	margin-left: 20px;
+	justify-content: center;
 }
 
 .item {
+	width: 305px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	gap: 20px;
+	gap: 10px;
 	color: var(--dark-grayish-blue);
-	margin: 30px 0;
+	margin: 15px 0;
 }
 
 .item img {
 	width: 50px;
+	border-radius: 5px;
 }
 
 .item-description p {
@@ -69,7 +71,7 @@
 }
 
 .checkout-button-container button {
-	width: 90%;
+	width: 305px;
 	border: none;
 	background-color: var(--orange);
 	padding: 15px 0;

@@ -1,7 +1,9 @@
 import './Navbar.css';
 import avatarImage from '../../../images/image-avatar.png';
+import { useState } from 'react';
 
 export default function Navbar() {
+	const [cartAmountItems, setCartAmountItems] = useState('3');
 	return (
 		<div className="Navbar">
 			<div className="logo-navlist-container">
@@ -53,6 +55,9 @@ export default function Navbar() {
 							fillRule="nonzero"
 						/>
 					</svg>
+				</div>
+				<div className="cart-item-amount-bubble">
+					<p>{cartAmountItems}</p>
 				</div>
 				<div className="avatar-icon-container">
 					<img src={avatarImage} alt="avatar-icon" />

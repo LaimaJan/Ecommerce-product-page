@@ -60,6 +60,23 @@
 	cursor: pointer;
 }
 
+.cart-item-amount-bubble {
+	position: absolute;
+	display: none;
+	top: 30px;
+	right: 180px;
+}
+
+.cart-item-amount-bubble p {
+	font-size: 9px;
+	width: 18px;
+	height: 12px;
+	font-weight: 600;
+	color: var(--white);
+	background-color: var(--orange);
+	border-radius: 10px;
+}
+
 .avatar-icon-container {
 	width: 44px;
 	height: 44px;
