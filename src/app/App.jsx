@@ -1,12 +1,15 @@
 import { useState, useRef, useEffect } from 'react';
 import Navbar from './components/Navbar/Navbar';
-import PopUpNavbar from './components/PopUpNavbar/PopUpNavbar';
+import SideNavBar from './components/SideNavBar/SideNavBar';
 import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 
 import './App.css';
 
 function App() {
 	const [appWidth, setAppWidth] = useState(0);
+	const [isCartOpen, setIsCartOpen] = useState(false);
+	const [sideNavOpen, setSideNavOpen] = useState(false);
+
 	const elementRef = useRef(null);
 	console.log(appWidth);
 
@@ -22,13 +25,20 @@ function App() {
 		};
 	}, []);
 
+	const toggleCartOpen = () => {
+		setIsCartOpen(!isCartOpen);
+	};
+
+	const toggleSideNav = () => {
+		setSideNavOpen(!sideNavOpen);
+	};
+
 	return (
 		<div className="App" ref={elementRef}>
-			{/* menu button before logo, when width is 1440px the menu button doesnt show up. 
-      When width is < 375px the button shows up before the logo, on click the nav bar from left appears. */}
-			<PopUpNavbar />
-			<Navbar />
-			<ShoppingCart />
+			<SideNavBar toggleSideNav={sideNavOpen} closeSideNav={toggleSideNav} />
+			<Navbar toggleCartOpen={toggleCartOpen} toggleSideNav={toggleSideNav} />
+			<ShoppingCart toggleCartOpen={isCartOpen} />
+			<div className="app-content"></div>
 		</div>
 	);
 }

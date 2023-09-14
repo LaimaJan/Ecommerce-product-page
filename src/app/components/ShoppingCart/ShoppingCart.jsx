@@ -1,15 +1,18 @@
+import PropTypes from 'prop-types';
 import './ShoppingCart.css';
 import SneakerImg from '../../../images/image-product-1.jpg';
 import { useState } from 'react';
 
-export default function ShoppingCart() {
+export default function ShoppingCart({ toggleCartOpen }) {
 	const [itemPrice, setItemprice] = useState('125.00');
-	const [itemAmout, setItemAmount] = useState('3');
+	const [itemAmount, setItemAmount] = useState('3');
 	const [endPrice, setEndPrice] = useState('375.00');
+
+	const cartToOpen = toggleCartOpen;
 
 	return (
 		<>
-			<div className="shopping-cart-container">
+			<div className={`shopping-cart-container ${cartToOpen ? 'show' : ''}`}>
 				<div className="cart-naming">
 					<p>Cart</p>
 				</div>
@@ -24,7 +27,7 @@ export default function ShoppingCart() {
 							<div className="item-price">
 								<p className="item-cost">$ {itemPrice}</p>
 								<p>x</p>
-								<p className="item-amount">{itemAmout}</p>
+								<p className="item-amount">{itemAmount}</p>
 								<p className="item-end-price">${endPrice}</p>
 							</div>
 						</div>
@@ -53,3 +56,7 @@ export default function ShoppingCart() {
 		</>
 	);
 }
+
+ShoppingCart.propTypes = {
+	toggleCartOpen: PropTypes.func.isRequired,
+};
