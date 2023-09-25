@@ -20,10 +20,18 @@ export default function ImageGallery() {
 	];
 
 	const [selected, setSelected] = useState(thumbnailImages[0]);
+	const [imageGalleryVisible, setImageGalleryVisible] = useState(false);
 
 	return (
-		<div className="image-gallery-container">
-			<div className="close-btn-container">
+		<div
+			className={
+				imageGalleryVisible ? 'close-gallery' : 'image-gallery-container'
+			}
+		>
+			<div
+				className="close-btn-container"
+				onClick={() => setImageGalleryVisible(!imageGalleryVisible)}
+			>
 				<img src={CloseIcon} alt={CloseIcon} />
 			</div>
 			<div className="arrows">
