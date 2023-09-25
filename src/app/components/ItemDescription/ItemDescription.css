@@ -1,0 +1,132 @@
+.sneakers-description-container {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	max-width: 480px;
+}
+
+.sneakers-description {
+	display: flex;
+	flex-direction: column;
+}
+
+.company-name {
+	font-size: 16px;
+	color: var(--orange);
+	font-weight: 600;
+	letter-spacing: 1.5px;
+}
+
+.sneakers-description-text {
+	margin-top: 70px;
+	display: flex;
+	flex-direction: column;
+}
+
+.sneakers-description-text > * {
+	margin: 0 auto;
+	margin-left: 0;
+}
+
+.sneaker-edition {
+	font-size: 40px;
+	font-weight: 600;
+	line-height: 3rem;
+	margin-top: 20px;
+}
+
+.sneaker-description {
+	color: var(--dark-grayish-blue);
+	line-height: 1.8rem;
+	margin-top: 30px;
+}
+
+.sneakers-price {
+	display: flex;
+	flex-direction: column;
+}
+
+.sale-price-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	gap: 20px;
+	margin: 0 auto;
+	margin-left: 0;
+}
+
+.sale-price {
+	font-size: 25px;
+	font-weight: 600;
+	color: var(--very-dark-blue);
+	margin-bottom: 0;
+}
+
+.sale-amount {
+	color: var(--orange);
+	font-weight: 600;
+	margin: 0;
+	background-color: hsl(28, 55%, 94%);
+	padding: 1px 6px;
+	border-radius: 5px;
+	margin-top: 25px;
+}
+
+.price {
+	margin: 0;
+	margin-top: 10px;
+	color: var(--grayish-blue);
+	font-weight: 600;
+	text-decoration: line-through;
+}
+
+@media screen and (max-width: 500px) {
+	.sneakers-description-container {
+		max-width: 410px;
+		margin-bottom: 60px;
+	}
+
+	.sneakers-description-text {
+		margin-top: 30px;
+	}
+
+	.sneakers-price {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.item-amount-button-container {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.sneakers-description-container {
+		max-width: 375px;
+		margin-bottom: 60px;
+		margin: 0 10px;
+	}
+
+	.sneakers-description-text {
+		margin-top: 20px;
+	}
+
+	.company-name {
+		font-size: 14px;
+	}
+
+	.sneaker-edition {
+		font-size: 30px;
+		margin-top: 10px;
+	}
+
+	.sneaker-description {
+		font-size: 15px;
+		margin-top: 15px;
+		line-height: 1.7rem;
+	}
+}

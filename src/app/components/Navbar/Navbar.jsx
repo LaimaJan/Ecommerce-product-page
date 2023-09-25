@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './Navbar.css';
 import avatarImage from '../../../images/image-avatar.png';
 import { useState } from 'react';
@@ -67,3 +68,8 @@ export default function Navbar({ toggleCartOpen, toggleSideNav }) {
 		</div>
 	);
 }
+
+Navbar.propTypes = {
+	toggleCartOpen: PropTypes.func.isRequired,
+	toggleSideNav: PropTypes.func.isRequired,
+};

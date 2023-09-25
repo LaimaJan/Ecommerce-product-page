@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import SideNavBar from './components/SideNavBar/SideNavBar';
 import ShoppingCart from './components/ShoppingCart/ShoppingCart';
+import ItemDescription from './components/ItemDescription/ItemDescription';
+import ItemPictures from './components/ItemPictures/ItemPictures';
 
 import './App.css';
 
@@ -38,7 +40,10 @@ function App() {
 			<SideNavBar toggleSideNav={sideNavOpen} closeSideNav={toggleSideNav} />
 			<Navbar toggleCartOpen={toggleCartOpen} toggleSideNav={toggleSideNav} />
 			<ShoppingCart toggleCartOpen={isCartOpen} />
-			<div className="app-content"></div>
+			<div className="app-content">
+				<ItemPictures />
+				<ItemDescription />
+			</div>
 		</div>
 	);
 }
