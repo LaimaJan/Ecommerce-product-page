@@ -3,7 +3,11 @@ import './ShoppingCart.css';
 import SneakerImg from '../../../images/image-product-1.jpg';
 import { useState, useEffect } from 'react';
 
-export default function ShoppingCart({ toggleCartOpen, items }) {
+export default function ShoppingCart({
+	toggleCartOpen,
+	items,
+	removeItemsFromCart,
+}) {
 	const [itemsInCart, setItemsInCart] = useState(0);
 
 	useEffect(() => {
@@ -18,9 +22,9 @@ export default function ShoppingCart({ toggleCartOpen, items }) {
 		sneakersEndPrice: sneakerEndPrice.toFixed(2),
 	};
 
-	const removeItemsFromCart = () => {
-		setItemsInCart(0);
-	};
+	// const removeItemsFromCart = () => {
+	// 	setItemsInCart(0);
+	// };
 
 	return (
 		<>
@@ -79,4 +83,5 @@ export default function ShoppingCart({ toggleCartOpen, items }) {
 ShoppingCart.propTypes = {
 	toggleCartOpen: PropTypes.bool.isRequired,
 	items: PropTypes.number.isRequired,
+	removeItemsFromCart: PropTypes.func.isRequired,
 };

@@ -17,6 +17,10 @@ function App() {
 		setAmountOfItemsInCart(amount);
 	};
 
+	const removeItemsFromCart = () => {
+		setAmountOfItemsInCart(0);
+	};
+
 	const elementRef = useRef(null);
 
 	useEffect(() => {
@@ -42,8 +46,16 @@ function App() {
 	return (
 		<div className="App" ref={elementRef}>
 			<SideNavBar toggleSideNav={sideNavOpen} closeSideNav={toggleSideNav} />
-			<Navbar toggleCartOpen={toggleCartOpen} toggleSideNav={toggleSideNav} />
-			<ShoppingCart toggleCartOpen={isCartOpen} items={amountOfItemsInCart} />
+			<Navbar
+				toggleCartOpen={toggleCartOpen}
+				toggleSideNav={toggleSideNav}
+				items={amountOfItemsInCart}
+			/>
+			<ShoppingCart
+				toggleCartOpen={isCartOpen}
+				items={amountOfItemsInCart}
+				removeItemsFromCart={removeItemsFromCart}
+			/>
 
 			<div className="app-content">
 				<ItemPictures />

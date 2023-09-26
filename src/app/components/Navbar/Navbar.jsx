@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
 import './Navbar.css';
 import avatarImage from '../../../images/image-avatar.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function Navbar({ toggleCartOpen, toggleSideNav }) {
-	const [cartAmountItems, setCartAmountItems] = useState('3');
+export default function Navbar({ toggleCartOpen, toggleSideNav, items }) {
+	const [cartAmountItems, setCartAmountItems] = useState(0);
+
+	useEffect(() => {
+		setCartAmountItems(items);
+	}, [items]);
 
 	return (
 		<div className="Navbar">
@@ -58,9 +62,14 @@ export default function Navbar({ toggleCartOpen, toggleSideNav }) {
 						/>
 					</svg>
 				</div>
-				<div className="cart-item-amount-bubble">
-					<p>{cartAmountItems}</p>
-				</div>
+				{cartAmountItems ? (
+					<div className="cart-item-amount-bubble">
+						<p>{cartAmountItems}</p>
+					</div>
+				) : (
+					''
+				)}
+
 				<div className="avatar-icon-container">
 					<img src={avatarImage} alt="avatar-icon" />
 				</div>
@@ -72,4 +81,5 @@ export default function Navbar({ toggleCartOpen, toggleSideNav }) {
 Navbar.propTypes = {
 	toggleCartOpen: PropTypes.func.isRequired,
 	toggleSideNav: PropTypes.func.isRequired,
+	items: PropTypes.number.isRequired,
 };

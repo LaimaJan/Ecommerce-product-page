@@ -25,11 +25,12 @@
 	justify-content: right;
 }
 
-.close-btn-container img {
-	width: 19px;
-	height: 20px;
+.close-btn-container svg {
+	margin-right: 2px;
 	filter: invert(50%) sepia(62%) saturate(846%) hue-rotate(343deg)
 		brightness(104%) contrast(108%);
+	transform: scale(1.2);
+	cursor: pointer;
 }
 
 .image-gallery-container .arrows {
@@ -49,10 +50,17 @@
 	background-color: var(--light-grayish-blue);
 	padding: 15px 17px;
 	border-radius: 30px;
+	cursor: pointer;
 }
 
 .image-gallery-container .arrow-left svg {
 	transform: rotate(180deg);
+}
+
+.image-gallery-container .arrow-left svg:hover,
+.image-gallery-container .arrow-right svg:hover {
+	filter: invert(50%) sepia(62%) saturate(846%) hue-rotate(343deg)
+		brightness(104%) contrast(108%);
 }
 
 .image-gallery-container .thumbnails {
@@ -69,6 +77,7 @@
 	border: none;
 	background: none;
 	display: flex;
+	cursor: pointer;
 }
 
 button.selected {
