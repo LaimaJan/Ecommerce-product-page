@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types';
 import './ShoppingCart.css';
 import SneakerImg from '../../../images/image-product-1.jpg';
-import { useState } from 'react';
+// import { useState } from 'react';
 
-export default function ShoppingCart({ toggleCartOpen }) {
-	const [itemPrice, setItemprice] = useState('125.00');
-	const [itemAmount, setItemAmount] = useState('3');
-	const [endPrice, setEndPrice] = useState('375.00');
-
+export default function ShoppingCart({ toggleCartOpen, items }) {
 	const cartToOpen = toggleCartOpen;
+	// const x = amountOfItemsInCart;
+
+	console.log(items);
 
 	return (
 		<>
@@ -58,5 +57,6 @@ export default function ShoppingCart({ toggleCartOpen }) {
 }
 
 ShoppingCart.propTypes = {
-	toggleCartOpen: PropTypes.func.isRequired,
+	toggleCartOpen: PropTypes.bool.isRequired,
+	items: PropTypes.number.isRequired,
 };

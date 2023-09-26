@@ -44,6 +44,6 @@ export default function SideNavBar({ toggleSideNav, closeSideNav }) {
 }
 
 SideNavBar.propTypes = {
-	toggleSideNav: PropTypes.func.isRequired,
+	toggleSideNav: PropTypes.bool.isRequired,
 	closeSideNav: PropTypes.func.isRequired,
 };
