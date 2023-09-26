@@ -19,17 +19,36 @@ export default function ItemPictures() {
 		{ id: 4, thumbImage: Thumbnail4, image: Image4 },
 	];
 
-	const [selected, setSelected] = useState(thumbnailImages[0]);
 	const [imageGalleryOpen, setImageGalleryOpen] = useState(false);
+	const [selectedIndex, setSelectedIndex] = useState(0);
 
 	const closeImageGallery = () => {
 		setImageGalleryOpen(false);
 	};
 
+	const handleThumbnailClick = (index) => {
+		setSelectedIndex(index);
+	};
+
+	const handleArrowClick = (direction) => {
+		if (direction === 'left') {
+			setSelectedIndex((prevIndex) =>
+				prevIndex === 0 ? thumbnailImages.length - 1 : prevIndex - 1
+			);
+		} else if (direction === 'right') {
+			setSelectedIndex((prevIndex) =>
+				prevIndex === thumbnailImages.length - 1 ? 0 : prevIndex + 1
+			);
+		}
+	};
+
 	return (
 		<div className="gallery">
 			<div className="arrows">
-				<div className="next-arrow arrow-left">
+				<div
+					className="next-arrow arrow-left"
+					onClick={() => handleArrowClick('left')}
+				>
 					<svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
 						<path
 							d="m2 1 8 8-8 8"
@@ -40,7 +59,10 @@ export default function ItemPictures() {
 						/>
 					</svg>
 				</div>
-				<div className="next-arrow arrow-right">
+				<div
+					className="next-arrow arrow-right"
+					onClick={() => handleArrowClick('right')}
+				>
 					<svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
 						<path
 							d="m2 1 8 8-8 8"
@@ -54,22 +76,23 @@ export default function ItemPictures() {
 			</div>
 
 			<img
-				src={selected.image}
-				alt={selected.image}
+				src={thumbnailImages[selectedIndex].image}
+				alt={thumbnailImages[selectedIndex].image}
 				onClick={() => setImageGalleryOpen(true)}
 			/>
+
 			<nav className="thumbnails">
-				{thumbnailImages.map((thumb) => {
+				{thumbnailImages.map((thumb, index) => {
 					return (
 						<button
 							key={thumb.id}
-							onClick={() => setSelected(thumb)}
-							className={selected.id === thumb.id ? 'selected' : ''}
+							onClick={() => handleThumbnailClick(index)}
+							className={index === selectedIndex ? 'selected' : ''}
 						>
 							<Thumbnail
 								thumbImage={thumb.thumbImage}
 								thumbImageAlt={thumb.image}
-								className={selected.id === thumb.id ? 'selected' : ''}
+								className={index === selectedIndex ? 'selected' : ''}
 							/>
 						</button>
 					);

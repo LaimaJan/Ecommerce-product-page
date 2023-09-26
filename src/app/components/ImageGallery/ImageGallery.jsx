@@ -10,13 +10,29 @@ export default function ImageGallery({
 	thumbnailImages,
 }) {
 	const thumbnails = thumbnailImages;
-	const [selected, setSelected] = useState(thumbnails[0]);
+	const [selectedIndex, setSelectedIndex] = useState(0);
 
 	useEffect(() => {}, [openGallery]);
 
 	const closeImageGallery = () => {
-		setSelected(thumbnails[0]);
+		setSelectedIndex(0);
 		onCloseGallery();
+	};
+
+	const handleThumbnailClick = (index) => {
+		setSelectedIndex(index);
+	};
+
+	const handleArrowClick = (direction) => {
+		if (direction === 'left') {
+			setSelectedIndex((prevIndex) =>
+				prevIndex === 0 ? thumbnails.length - 1 : prevIndex - 1
+			);
+		} else if (direction === 'right') {
+			setSelectedIndex((prevIndex) =>
+				prevIndex === thumbnails.length - 1 ? 0 : prevIndex + 1
+			);
+		}
 	};
 
 	return (
@@ -25,7 +41,10 @@ export default function ImageGallery({
 				<img src={CloseIcon} alt={CloseIcon} />
 			</div>
 			<div className="arrows">
-				<div className="next-arrow arrow-left">
+				<div
+					className="next-arrow arrow-left"
+					onClick={() => handleArrowClick('left')}
+				>
 					<svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
 						<path
 							d="m2 1 8 8-8 8"
@@ -36,7 +55,10 @@ export default function ImageGallery({
 						/>
 					</svg>
 				</div>
-				<div className="next-arrow arrow-right">
+				<div
+					className="next-arrow arrow-right"
+					onClick={() => handleArrowClick('right')}
+				>
 					<svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
 						<path
 							d="m2 1 8 8-8 8"
@@ -49,19 +71,22 @@ export default function ImageGallery({
 				</div>
 			</div>
 			<div className="image-gallery">
-				<img src={selected.image} alt={selected.image} />
+				<img
+					src={thumbnails[selectedIndex].image}
+					alt={thumbnails[selectedIndex].image}
+				/>
 				<nav className="thumbnails">
-					{thumbnails.map((thumb) => {
+					{thumbnails.map((thumb, index) => {
 						return (
 							<button
 								key={thumb.id}
-								onClick={() => setSelected(thumb)}
-								className={selected.id === thumb.id ? 'selected' : ''}
+								onClick={() => handleThumbnailClick(index)}
+								className={index === selectedIndex ? 'selected' : ''}
 							>
 								<Thumbnail
 									thumbImage={thumb.thumbImage}
 									thumbImageAlt={thumb.image}
-									className={selected.id === thumb.id ? 'selected' : ''}
+									className={index === selectedIndex ? 'selected' : ''}
 								/>
 							</button>
 						);
