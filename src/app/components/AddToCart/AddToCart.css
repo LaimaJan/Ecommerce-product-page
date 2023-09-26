@@ -21,6 +21,14 @@
 	font-weight: 500;
 }
 
+.decrease-icon-container,
+.increase-icon-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
+}
+
 .add-to-cart-button {
 	display: flex;
 	flex-direction: row;
@@ -31,6 +39,11 @@
 	background-color: var(--orange);
 	padding: 0 80px;
 	border-radius: 7px;
+	cursor: pointer;
+}
+
+.add-to-cart-button:hover {
+	background-color: hsl(26, 80%, 75%);
 }
 
 .add-to-cart-button p {

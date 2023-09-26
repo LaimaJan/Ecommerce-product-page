@@ -24,6 +24,12 @@
 	font-weight: 600;
 }
 
+.cart-empty-naming p {
+	font-weight: 600;
+	color: var(--dark-grayish-blue);
+	padding: 60px 0;
+}
+
 .cart-items {
 	display: flex;
 	justify-content: center;

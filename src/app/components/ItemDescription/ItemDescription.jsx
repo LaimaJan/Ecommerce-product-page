@@ -1,7 +1,8 @@
 import './ItemDescription.css';
 import AddToCart from '../AddToCart/AddToCart';
+import PropTypes from 'prop-types';
 
-export default function ItemDescription() {
+export default function ItemDescription({ getAmountOfItems }) {
 	return (
 		<div className="sneakers-description-container">
 			<div className="sneakers-description">
@@ -24,7 +25,11 @@ export default function ItemDescription() {
 					<p className="price">$250.00</p>
 				</div>
 			</div>
-			<AddToCart />
+			<AddToCart addItemsToShoppingCart={getAmountOfItems} />
 		</div>
 	);
 }
+
+ItemDescription.propTypes = {
+	getAmountOfItems: PropTypes.func.isRequired,
+};

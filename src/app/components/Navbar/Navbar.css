@@ -83,6 +83,7 @@
 	align-items: center;
 	justify-content: center;
 	border-radius: 50%;
+	/* line-height: 0; */
 }
 
 .avatar-icon-container:hover {

@@ -16,10 +16,10 @@ export default function ShoppingCart({ toggleCartOpen }) {
 				<div className="cart-naming">
 					<p>Cart</p>
 				</div>
-				{/* <div className="cart-empty-naming">
+				<div className="cart-empty-naming">
 					<p>Your cart is empty</p>
-				</div> */}
-				<div className="cart-items">
+				</div>
+				{/* <div className="cart-items">
 					<div className="item">
 						<img src={SneakerImg} alt="sneakers-image" />
 						<div className="item-description">
@@ -48,10 +48,10 @@ export default function ShoppingCart({ toggleCartOpen }) {
 							</svg>
 						</div>
 					</div>
-				</div>
+				</div> 
 				<div className="checkout-button-container">
 					<button>Checkout</button>
-				</div>
+				</div> */}
 			</div>
 		</>
 	);

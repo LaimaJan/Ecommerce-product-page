@@ -11,9 +11,16 @@ function App() {
 	const [appWidth, setAppWidth] = useState(0);
 	const [isCartOpen, setIsCartOpen] = useState(false);
 	const [sideNavOpen, setSideNavOpen] = useState(false);
+	const [amountOfItemsInCart, setAmountOfItemsInCart] = useState(0);
+
+	console.log('AR PAVYKO: ', amountOfItemsInCart);
+	console.log(appWidth);
+
+	const itemToShoppingCart = (amount) => {
+		setAmountOfItemsInCart(amount);
+	};
 
 	const elementRef = useRef(null);
-	console.log(appWidth);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -42,7 +49,7 @@ function App() {
 			<ShoppingCart toggleCartOpen={isCartOpen} />
 			<div className="app-content">
 				<ItemPictures />
-				<ItemDescription />
+				<ItemDescription getAmountOfItems={itemToShoppingCart} />
 			</div>
 		</div>
 	);
