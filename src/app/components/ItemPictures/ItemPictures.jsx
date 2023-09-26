@@ -20,9 +20,10 @@ export default function ItemPictures() {
 	];
 
 	const [selected, setSelected] = useState(thumbnailImages[0]);
-	const [imageGalleryVisible, setImageGalleryVisible] = useState(false);
-	const toggleImageGallery = () => {
-		setImageGalleryVisible(!imageGalleryVisible);
+	const [imageGalleryOpen, setImageGalleryOpen] = useState(false);
+
+	const closeImageGallery = () => {
+		setImageGalleryOpen(false);
 	};
 
 	return (
@@ -52,7 +53,11 @@ export default function ItemPictures() {
 				</div>
 			</div>
 
-			<img src={selected.image} alt={selected.image} />
+			<img
+				src={selected.image}
+				alt={selected.image}
+				onClick={() => setImageGalleryOpen(true)}
+			/>
 			<nav className="thumbnails">
 				{thumbnailImages.map((thumb) => {
 					return (
@@ -70,7 +75,11 @@ export default function ItemPictures() {
 					);
 				})}
 			</nav>
-			<ImageGallery />
+			<ImageGallery
+				openGallery={imageGalleryOpen}
+				onCloseGallery={closeImageGallery}
+				thumbnailImages={thumbnailImages}
+			/>
 		</div>
 	);
 }

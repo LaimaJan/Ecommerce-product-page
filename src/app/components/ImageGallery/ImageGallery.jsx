@@ -1,37 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Thumbnail from '../ThumbnailComponent/ThumbnailComponent';
 import './ImageGallery.css';
-import Image1 from '../../../images/image-product-1.jpg';
-import Thumbnail1 from '../../../images/image-product-1-thumbnail.jpg';
-import Image2 from '../../../images/image-product-2.jpg';
-import Thumbnail2 from '../../../images/image-product-2-thumbnail.jpg';
-import Image3 from '../../../images/image-product-3.jpg';
-import Thumbnail3 from '../../../images/image-product-3-thumbnail.jpg';
-import Image4 from '../../../images/image-product-4.jpg';
-import Thumbnail4 from '../../../images/image-product-4-thumbnail.jpg';
 import CloseIcon from '../../../images/icon-close.svg';
 
-export default function ImageGallery() {
-	const thumbnailImages = [
-		{ id: 1, thumbImage: Thumbnail1, image: Image1 },
-		{ id: 2, thumbImage: Thumbnail2, image: Image2 },
-		{ id: 3, thumbImage: Thumbnail3, image: Image3 },
-		{ id: 4, thumbImage: Thumbnail4, image: Image4 },
-	];
+export default function ImageGallery({
+	openGallery,
+	onCloseGallery,
+	thumbnailImages,
+}) {
+	const thumbnails = thumbnailImages;
+	const [selected, setSelected] = useState(thumbnails[0]);
 
-	const [selected, setSelected] = useState(thumbnailImages[0]);
-	const [imageGalleryVisible, setImageGalleryVisible] = useState(false);
+	useEffect(() => {}, [openGallery]);
+
+	const closeImageGallery = () => {
+		setSelected(thumbnails[0]);
+		onCloseGallery();
+	};
 
 	return (
-		<div
-			className={
-				imageGalleryVisible ? 'close-gallery' : 'image-gallery-container'
-			}
-		>
-			<div
-				className="close-btn-container"
-				onClick={() => setImageGalleryVisible(!imageGalleryVisible)}
-			>
+		<div className={openGallery ? 'image-gallery-container' : 'close-gallery'}>
+			<div className="close-btn-container" onClick={closeImageGallery}>
 				<img src={CloseIcon} alt={CloseIcon} />
 			</div>
 			<div className="arrows">
@@ -61,7 +51,7 @@ export default function ImageGallery() {
 			<div className="image-gallery">
 				<img src={selected.image} alt={selected.image} />
 				<nav className="thumbnails">
-					{thumbnailImages.map((thumb) => {
+					{thumbnails.map((thumb) => {
 						return (
 							<button
 								key={thumb.id}
@@ -81,3 +71,15 @@ export default function ImageGallery() {
 		</div>
 	);
 }
+
+ImageGallery.propTypes = {
+	openGallery: PropTypes.bool.isRequired,
+	onCloseGallery: PropTypes.func.isRequired,
+	thumbnailImages: PropTypes.arrayOf(
+		PropTypes.shape({
+			id: PropTypes.number.isRequired,
+			thumbImage: PropTypes.string.isRequired,
+			image: PropTypes.string.isRequired,
+		})
+	).isRequired,
+};
