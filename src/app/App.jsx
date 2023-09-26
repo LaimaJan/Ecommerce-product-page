@@ -13,9 +13,6 @@ function App() {
 	const [sideNavOpen, setSideNavOpen] = useState(false);
 	const [amountOfItemsInCart, setAmountOfItemsInCart] = useState(0);
 
-	const items = amountOfItemsInCart;
-	console.log(items);
-
 	const itemToShoppingCart = (amount) => {
 		setAmountOfItemsInCart(amount);
 	};
@@ -46,7 +43,7 @@ function App() {
 		<div className="App" ref={elementRef}>
 			<SideNavBar toggleSideNav={sideNavOpen} closeSideNav={toggleSideNav} />
 			<Navbar toggleCartOpen={toggleCartOpen} toggleSideNav={toggleSideNav} />
-			<ShoppingCart toggleCartOpen={isCartOpen} amountOfItems={items} />
+			<ShoppingCart toggleCartOpen={isCartOpen} items={amountOfItemsInCart} />
 
 			<div className="app-content">
 				<ItemPictures />

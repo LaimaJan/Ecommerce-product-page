@@ -5,6 +5,7 @@
 	width: 100vw;
 	min-height: 100vh;
 	background-color: hsl(220, 13%, 13%, 0.7);
+	z-index: 1000;
 }
 
 .sidenav-container.show {
