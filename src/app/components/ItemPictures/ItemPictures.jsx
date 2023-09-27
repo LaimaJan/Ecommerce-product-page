@@ -22,6 +22,8 @@ export default function ItemPictures() {
 	const [imageGalleryOpen, setImageGalleryOpen] = useState(false);
 	const [selectedIndex, setSelectedIndex] = useState(0);
 
+	console.log(selectedIndex);
+
 	const closeImageGallery = () => {
 		setImageGalleryOpen(false);
 	};
@@ -102,6 +104,7 @@ export default function ItemPictures() {
 				openGallery={imageGalleryOpen}
 				onCloseGallery={closeImageGallery}
 				thumbnailImages={thumbnailImages}
+				indexOfThumbnail={selectedIndex}
 			/>
 		</div>
 	);

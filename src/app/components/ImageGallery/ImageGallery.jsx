@@ -2,17 +2,20 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Thumbnail from '../ThumbnailComponent/ThumbnailComponent';
 import './ImageGallery.css';
-import CloseIcon from '../../../images/icon-close.svg';
 
 export default function ImageGallery({
 	openGallery,
 	onCloseGallery,
 	thumbnailImages,
+	indexOfThumbnail,
 }) {
 	const thumbnails = thumbnailImages;
-	const [selectedIndex, setSelectedIndex] = useState(0);
 
-	useEffect(() => {}, [openGallery]);
+	const [selectedIndex, setSelectedIndex] = useState(indexOfThumbnail);
+
+	useEffect(() => {
+		setSelectedIndex(indexOfThumbnail);
+	}, [openGallery, indexOfThumbnail]);
 
 	const closeImageGallery = () => {
 		setSelectedIndex(0);
@@ -113,4 +116,5 @@ ImageGallery.propTypes = {
 			image: PropTypes.string.isRequired,
 		})
 	).isRequired,
+	indexOfThumbnail: PropTypes.number.isRequired,
 };

@@ -29,6 +29,11 @@
 	padding: 5px;
 }
 
+.increase-icon-container svg use:hover,
+.decrease-icon-container svg use:hover {
+	fill: hsl(26, 80%, 75%);
+}
+
 .add-to-cart-button {
 	display: flex;
 	flex-direction: row;

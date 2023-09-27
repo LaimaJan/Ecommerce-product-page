@@ -22,10 +22,6 @@ export default function ShoppingCart({
 		sneakersEndPrice: sneakerEndPrice.toFixed(2),
 	};
 
-	// const removeItemsFromCart = () => {
-	// 	setItemsInCart(0);
-	// };
-
 	return (
 		<>
 			<div
